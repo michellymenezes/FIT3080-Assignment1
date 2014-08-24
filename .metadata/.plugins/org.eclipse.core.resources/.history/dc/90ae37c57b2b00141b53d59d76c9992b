@@ -1,0 +1,16 @@
+
+package planpath;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+
+public class reader {
+
+	File file;
+	public reader(){
+		
+		this.file = new File("imput.txt");
+		
+	}
+}
