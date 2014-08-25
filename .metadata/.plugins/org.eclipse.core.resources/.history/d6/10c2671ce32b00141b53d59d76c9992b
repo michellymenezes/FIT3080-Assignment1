@@ -1,0 +1,53 @@
+package planpath;
+
+public class node {
+
+	boolean status;
+	node r, rd, d, ld, l, lu, u, ru;
+	String terrain;
+	
+	public node(boolean status, node r, node rd, node d, node ld, node l, node lu, node u, node ru, String terrain){
+		this.status = status;
+		this.r = r;
+		this.rd = rd;
+		this.d = d;
+		this.ld = ld;
+		this.l = l;
+		this.lu = lu;
+		this.u = u;
+		this.ru = ru;
+		this.l = l;
+		
+		this.terrain = terrain;
+	}
+
+	public void setStatus() {
+		if(status == true){
+			status = false;
+		}
+		else{
+			status = true;
+		}
+	}
+
+	public String getTerrain() {
+		return terrain;
+	}
+
+	public node getFather() {
+		return father;
+	}
+
+	public node getChildren() {
+		return children;
+	}
+
+	public boolean isRoot(){
+		return this.father == null;
+	}
+	
+	public boolean isLeaf(){
+		return this.children == null;
+	}
+	
+}
