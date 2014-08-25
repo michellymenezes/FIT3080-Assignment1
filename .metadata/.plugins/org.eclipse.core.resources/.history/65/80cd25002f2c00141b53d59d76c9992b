@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class Map {
 
-	ArrayList<String []> map;
-	private ArrayList<String> info;
+	ArrayList map;
+	private ArrayList info;
 	private BufferedReader input;
 
 	public Map() throws Exception {
 
-		this.map = new ArrayList<String[]>();
-		this.info = new ArrayList<String>();
+		this.map = new ArrayList();
+		this.info = new ArrayList();
 		input = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/input.txt"));
 		int cont = 0;
 		while (input.ready()) {
@@ -28,7 +28,7 @@ public class Map {
 		input.close();
 	}
 	
-	public ArrayList<String[]> getMap(){
+	public ArrayList getMap(){
 		return map;
 	}
 	

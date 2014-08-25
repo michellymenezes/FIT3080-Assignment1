@@ -1,0 +1,23 @@
+package planpath;
+
+import java.util.ArrayList;
+
+public class backtrack {
+	
+	private Map input;
+	private ArrayList table;
+	
+	public backtrack() throws Exception{
+		
+		this.input = new Map();
+		this.table = input.getMap();
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}

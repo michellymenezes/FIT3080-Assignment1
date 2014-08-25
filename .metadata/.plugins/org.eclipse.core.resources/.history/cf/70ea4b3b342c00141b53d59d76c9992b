@@ -27,26 +27,10 @@ public class Backtrack {
 		return null;
 	}
 
-	private ArrayList<String> backtrackRecursive(int i, int j,ArrayList<String> moves) {
-		for(int k = 0; k < 8; k++){
-			if (j < input.getSize() -1){
-				moves.add("R");
-				if (table.get(i)[j + 1].equals("G")) {
-					return moves;
-				}
-				return backtrackRecursive(i, j + 1, moves);
-			}
-			
-			if(j < input.getSize() - 1 && i < input.getSize() -1){
-				moves.add("RD");
-				if(table.get(i+1)[j+1].equals("G")){
-					return moves;
-				}
-				return backtrackRecursive(i+1, j+1, moves);
-			}
-		}
+	private ArrayList<String> backtrackRecursive(int i, int j,
+			ArrayList<String> moves) {
 
-/*		if (j < input.getSize() - 1) {
+		if (j < input.getSize() - 1) {
 			moves.add("R");
 
 			if (table.get(i)[j + 1].equals("G")) {
@@ -54,7 +38,7 @@ public class Backtrack {
 			}
 
 			return backtrackRecursive(i, j + 1, moves);
-		} */
+		}
 
 		return null;
 	}
