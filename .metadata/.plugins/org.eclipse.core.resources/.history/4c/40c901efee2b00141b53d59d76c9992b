@@ -1,0 +1,27 @@
+package planpath;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Map {
+
+	private ArrayList map = new ArrayList();
+
+	public Map() throws Exception {
+		map = new ArrayList();
+		BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/input.txt"));
+		while (br.ready()) {
+			map.add(br.readLine().toUpperCase());
+		}
+		br.close();
+		System.out.println(map.toString());
+	}
+
+	public static void main(String[] args) throws Exception {
+		Map mapinha = new Map();
+
+	}
+
+}

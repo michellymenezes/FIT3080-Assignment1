@@ -1,0 +1,50 @@
+package planpath;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Map {
+
+	private ArrayList map;
+	private FileInputStream file;
+	private String content, row;
+	private FileReader reader;
+
+	public Map() throws IOException {
+		
+		BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/input.txt"));
+		while(br.ready()){
+				String linha = br.readLine();  
+			   System.out.println(linha);  
+			   map.add(linha);
+			}  
+			br.close(); 
+			System.out.println(map.toArray());
+	}
+
+	private String read() throws Exception {
+		if (true) {
+			System.out.println("ok");
+			reader = new FileReader("input.txt");
+			BufferedReader reader2 = new BufferedReader(reader);
+			while (true) {
+				row = reader2.readLine();
+				if (row == null) {
+					return content;
+				}
+				content += row + "\n";
+			}
+		}
+		return null;
+	}
+	
+	public static void main(String [] args) throws IOException{
+		Map mapinha = new Map();
+
+	}
+
+}
