@@ -12,16 +12,26 @@ public class Map {
 	public Map() throws Exception {
 
 		this.map = new ArrayList();
-		this.input = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/input.txt"));
-		
+		input = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/input.txt"));
 		while (input.ready()) {
 			map.add(input.readLine().toUpperCase());
 		}
-		
 		input.close();
 	}
 	
 	public ArrayList getMap(){
-		return map;
+		return (ArrayList) map.subList(3, map.size()-1);
+	}
+	
+	public String getAlg(){
+		return (String) map.get(0);
+	}
+	
+	public int getInt(){
+		return Integer.parseInt((String) map.get(1));
+	}
+	
+	public int getSize(){
+		return Integer.parseInt((String) map.get(2));
 	}
 }
