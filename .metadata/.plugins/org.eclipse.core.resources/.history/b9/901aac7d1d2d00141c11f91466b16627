@@ -24,7 +24,7 @@ public class InputTest {
 		lista.add(new String[4]);
 		lista.add(new String[4]);
 		lista.add(new String[4]);
-/*		lista.get(0)[0] = "S";
+		lista.get(0)[0] = "S";
 		lista.get(0)[1] = "A";
 		lista.get(0)[2] = "A";
 		lista.get(0)[3] = "X";
@@ -39,7 +39,7 @@ public class InputTest {
 		lista.get(3)[0] = "X";
 		lista.get(3)[1] = "X";
 		lista.get(3)[2] = "X";
-		lista.get(3)[3] = "X"; */
+		lista.get(3)[3] = "X";
 
 	}
 	@Test
@@ -47,9 +47,9 @@ public class InputTest {
 		assertEquals("4", myInput.getAlg());
 		assertEquals(4, myInput.getInt());
 		assertEquals(4, myInput.getSize());
-/*		assertArrayEquals(lista.get(0), myInput.getMap().get(0));
+		assertArrayEquals(lista.get(0), myInput.getMap().get(0));
 		assertArrayEquals(lista.get(1), myInput.getMap().get(1));
 		assertArrayEquals(lista.get(2), myInput.getMap().get(2));
-		assertArrayEquals(lista.get(3), myInput.getMap().get(3)); */
+		assertArrayEquals(lista.get(3), myInput.getMap().get(3));
 	}
 }

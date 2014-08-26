@@ -22,14 +22,14 @@ public class Backtrack {
 		for (int i = 0; i < input.getSize(); i++) {
 			for (int j = 0; j < input.getSize(); j++) {
 				if (table.get(i)[j].equals("S")) {
-					return backtrackRecursive(i, j, moves, visited);
+					return backtrackRecursive(i, j, moves);
 				}
 			}
 		}
 		return null;
 	}
 
-	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves, ArrayList<boolean []> visited) {
+	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves) {
 		
 		visited.get(i)[j] = true;
 		
@@ -48,7 +48,7 @@ public class Backtrack {
 					if (table.get(i)[j + 1].equals("G")) {
 						return moves;
 					}
-					return backtrackRecursive(i, j + 1, moves, visited);
+					return backtrackRecursive(i, j + 1, moves);
 				}
 				
 			case 1:	
@@ -61,7 +61,7 @@ public class Backtrack {
 					if(table.get(i + 1)[j + 1].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i + 1, j + 1, moves, visited);
+					return backtrackRecursive(i + 1, j + 1, moves);
 				}
 			
 			case 2:
@@ -74,7 +74,7 @@ public class Backtrack {
 					if(table.get(i + 1)[j].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i + 1, j, moves, visited);
+					return backtrackRecursive(i + 1, j, moves);
 				}
 				
 			case 3:	
@@ -87,11 +87,11 @@ public class Backtrack {
 					if(table.get(i + 1)[j - 1].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i + 1, j - 1, moves, visited);
+					return backtrackRecursive(i + 1, j - 1, moves);
 				}
 				
 			case 4:	
-				if(j > 0 && !table.get(i)[j - 1].equals("X") && !visited.get(i)[j -1]){
+				if(j > 0 && !table.get(i)[j - 1].equals("X")){
 					moves.add("L");
 					System.out.println(i);
 					System.out.println(j);
@@ -100,11 +100,11 @@ public class Backtrack {
 					if(table.get(i)[j - 1].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i, j - 1, moves, visited);
+					return backtrackRecursive(i, j - 1, moves);
 				}
 			
 			case 5:	
-				if(j > 0 && i > 0 && !table.get(i - 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j -1]){
+				if(j > 0 && i > 0 && !table.get(i - 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i - 1)[j].equals("X")){
 					moves.add("LU");
 					System.out.println(i);
 					System.out.println(j);
@@ -113,11 +113,11 @@ public class Backtrack {
 					if(table.get(i - 1)[j - 1].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i - 1, j - 1, moves, visited);
+					return backtrackRecursive(i - 1, j - 1, moves);
 				}
 				
 			case 6:	
-				if(i > 0 && !table.get(i - 1)[j].equals("X") && !visited.get(i - 1)[j]){
+				if(i > 0 && !table.get(i - 1)[j].equals("X")){
 					moves.add("U");
 					System.out.println(i);
 					System.out.println(j);
@@ -126,11 +126,11 @@ public class Backtrack {
 					if(table.get(i - 1)[j].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i - 1, j, moves, visited);
+					return backtrackRecursive(i - 1, j, moves);
 				}
 			
 			case 7:	
-				if(j < input.getSize() - 1 && i > 0 && !table.get(i - 1)[j + 1].equals("X") && !table.get(i)[j + 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j +1]){
+				if(j < input.getSize() - 1 && i > 0 && !table.get(i - 1)[j + 1].equals("X") && !table.get(i)[j + 1].equals("X") && !table.get(i - 1)[j].equals("X")){
 					moves.add("RU");
 					System.out.println(i);
 					System.out.println(j);
@@ -139,13 +139,15 @@ public class Backtrack {
 					if(table.get(i - 1)[j + 1].equals("G")){
 						return moves;
 					}
-					return backtrackRecursive(i - 1, j + 1, moves, visited);
+					return backtrackRecursive(i - 1, j + 1, moves);
 				}
 			}
 		}	
-		return null;
+		return moves;
+		
+			
+		
 	}
-	
 	public static void main(String [] args) throws Exception{
 		Backtrack b = new Backtrack();
 		ArrayList<String> k = b.backtrack();
