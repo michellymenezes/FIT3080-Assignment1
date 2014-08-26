@@ -1,0 +1,30 @@
+4
+4
+4
+S A A X 
+G X X X
+X X X X
+X X X X
+
+
+—————————————————————————————————————
+—————————————————————————————————————
+
+1. HAVING is used to functions
+
+2. The GROUP BY is missed. SELECT V_CODE, SUM(P_QOH) FROM PRODUCT GROUP BY V_CODE;
+
+3. WHERE V_STATE = ‘TN’ OR V_STATE = ‘FL’ OR V_STATE = ‘GA’;
+
+4. GROUP BY must be used if there is functions in the SELECT clause.
+
+5. a) It will count everything of V_CODE and select one of each.
+b) It will select the distinct values of V_CODE and count it after.
+
+6. It is a query which is inside another query. It is expressed between () and executed first by the oracle server.
+
+7. Single value, list of values and virtual table.
+
+8. They operate over entire sets of rows and columns at once.
+
+9.  

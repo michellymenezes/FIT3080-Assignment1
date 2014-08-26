@@ -1,6 +1,7 @@
-oi1
-2
-3
-aa aa aaaaa
-b
-c
+4
+4
+4
+S A A X 
+G X X X
+X X X X
+X X X X

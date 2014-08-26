@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Backtrack {
 
-	private Map input;
+	private Input input;
 	private ArrayList<String[]> table;
 
 	public Backtrack() throws Exception {
 
-		this.input = new Map();
+		this.input = new Input();
 		this.table = input.getMap();
 
 	}
@@ -27,86 +27,93 @@ public class Backtrack {
 		return null;
 	}
 
-	private ArrayList<String> backtrackRecursive(int i, int j,ArrayList<String> moves) {
-		for(int k = 0; k < 8; k++){
-			
+	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves) {
+		for(int k = 0; k < 8; k++){			
 			switch (k) {
 			
-				case 0: 
-					if (j < input.getSize() -1 && !table.get(i)[j+1].equals("X")){
-						moves.add("R");
-						if (table.get(i)[j + 1].equals("G")) {
-							return moves;
-						}
-						return backtrackRecursive(i, j + 1, moves);
+			case 0: 
+				if (j < input.getSize() - 1 && !table.get(i)[j + 1].equals("X")){
+					moves.add("R");
+					if (table.get(i)[j + 1].equals("G")) {
+						return moves;
 					}
-					
-				case 1:	
-					if(j < input.getSize() - 1 && i < input.getSize() -1 && !table.get(i)[j+1].equals("X") && !table.get(i+1)[j].equals("X") && !table.get(i+1)[j+1].equals("X")){
-						moves.add("RD");
-						if(table.get(i+1)[j+1].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i+1, j+1, moves);
-					}
+					return backtrackRecursive(i, j + 1, moves);
+				}
 				
-				case 2:
-					if(i < input.getSize() -1 && !table.get(i+1)[j].equals("X")){
-						moves.add("D");
-						if(table.get(i+1)[j].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i+1, j, moves);
+			case 1:	
+				if(j < input.getSize() - 1 && i < input.getSize() - 1 && !table.get(i)[j + 1].equals("X") && !table.get(i + 1)[j].equals("X") && !table.get(i + 1)[j + 1].equals("X")){
+					moves.add("RD");
+					if(table.get(i + 1)[j + 1].equals("G")){
+						return moves;
 					}
-					
-				case 3:	
-					if(j > 0 && i < input.getSize() -1 && !table.get(i+1)[j-1].equals("X") && !table.get(i)[j-1].equals("X") && !table.get(i+1)[j].equals("X")){
-						moves.add("LD");
-						if(table.get(i+1)[j-1].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i+1, j-1, moves);
+					return backtrackRecursive(i + 1, j + 1, moves);
+				}
+			
+			case 2:
+				if(i < input.getSize() - 1 && !table.get(i + 1)[j].equals("X")){
+					moves.add("D");
+					if(table.get(i + 1)[j].equals("G")){
+						return moves;
 					}
-					
-				case 4:	
-					if(j > 0 && !table.get(i)[j-1].equals("X")){
-						moves.add("L");
-						if(table.get(i)[j-1].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i, j-1, moves);
-					}
+					return backtrackRecursive(i + 1, j, moves);
+				}
 				
-				case 5:	
-					if(j > 0 && i > 0 && !table.get(i-1)[j-1].equals("X") && !table.get(i)[j-1].equals("X") && !table.get(i-1)[j].equals("X")){
-						moves.add("LU");
-						if(table.get(i-1)[j-1].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i-1, j-1, moves);
+			case 3:	
+				if(j > 0 && i < input.getSize() - 1 && !table.get(i + 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i + 1)[j].equals("X")){
+					moves.add("LD");
+					if(table.get(i + 1)[j - 1].equals("G")){
+						return moves;
 					}
-					
-				case 6:	
-					if(i > 0 && !table.get(i-1)[j].equals("X")){
-						moves.add("U");
-						if(table.get(i-1)[j].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i-1, j, moves);
-					}
+					return backtrackRecursive(i + 1, j - 1, moves);
+				}
 				
-				case 7:	
-					if(j < input.getSize() - 1 && i > 0 && !table.get(i-1)[j+1].equals("X") && !table.get(i)[j+1].equals("X") && !table.get(i-1)[j].equals("X")){
-						moves.add("RU");
-						if(table.get(i-1)[j+1].equals("G")){
-							return moves;
-						}
-						return backtrackRecursive(i-1, j+1, moves);
+			case 4:	
+				if(j > 0 && !table.get(i)[j - 1].equals("X")){
+					moves.add("L");
+					if(table.get(i)[j - 1].equals("G")){
+						return moves;
 					}
+					return backtrackRecursive(i, j - 1, moves);
+				}
+			
+			case 5:	
+				if(j > 0 && i > 0 && !table.get(i - 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i - 1)[j].equals("X")){
+					moves.add("LU");
+					if(table.get(i - 1)[j - 1].equals("G")){
+						return moves;
+					}
+					return backtrackRecursive(i - 1, j - 1, moves);
+				}
+				
+			case 6:	
+				if(i > 0 && !table.get(i - 1)[j].equals("X")){
+					moves.add("U");
+					if(table.get(i - 1)[j].equals("G")){
+						return moves;
+					}
+					return backtrackRecursive(i - 1, j, moves);
+				}
+			
+			case 7:	
+				if(j < input.getSize() - 1 && i > 0 && !table.get(i - 1)[j + 1].equals("X") && !table.get(i)[j + 1].equals("X") && !table.get(i - 1)[j].equals("X")){
+					moves.add("RU");
+					if(table.get(i - 1)[j + 1].equals("G")){
+						return moves;
+					}
+					return backtrackRecursive(i - 1, j + 1, moves);
+				}
 			}
-		}
-	
+		}	
 		return null;
+		
+			
+		
 	}
-
+	public static void main(String [] args) throws Exception{
+		Backtrack b = new Backtrack();
+		ArrayList<String> k = b.backtrack();
+		System.out.println(k);
+		
+		
+	}
 }

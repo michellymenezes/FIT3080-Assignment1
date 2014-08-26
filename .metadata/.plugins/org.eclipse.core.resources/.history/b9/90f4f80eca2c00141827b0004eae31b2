@@ -1,0 +1,19 @@
+package planpath;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class InputTest {
+
+	Input myInput;
+	
+	@Test
+	public void test() {
+		assertEquals("4", myInput.getAlg());
+		assertEquals(4, myInput.getInt());
+		assertEquals(4, myInput.getSize());
+		
+	}
+
+}

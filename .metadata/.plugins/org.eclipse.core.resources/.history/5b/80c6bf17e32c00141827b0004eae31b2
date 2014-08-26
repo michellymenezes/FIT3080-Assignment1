@@ -1,0 +1,29 @@
+package planpath;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class InputTest {
+	
+	Input myInput;
+	
+	@Before
+	public void first(){
+		try{
+			myInput = new Input();
+			}
+		catch(Exception e){
+			
+		}
+	}
+	@Test
+	public void test() {
+		assertEquals("4", myInput.getAlg());
+		assertEquals(4, myInput.getInt());
+		assertEquals(4, myInput.getSize());
+		
+	}
+
+}

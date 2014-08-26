@@ -1,0 +1,17 @@
+package planpath;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class InputTest {
+
+	Input myInput;
+	
+	@Test
+	public void test() {
+		System.out.println(myInput.getAlg());
+		
+	}
+
+}

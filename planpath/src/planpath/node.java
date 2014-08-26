@@ -1,12 +1,12 @@
 package planpath;
 
-public class node {
+public class Node {
 
 	private boolean status;
-	private node r, rd, d, ld, l, lu, u, ru;
+	private Node r, rd, d, ld, l, lu, u, ru;
 	private String terrain;
 	
-	public node(boolean status, node r, node rd, node d, node ld, node l, node lu, node u, node ru, String terrain){
+	public Node(boolean status, Node r, Node rd, Node d, Node ld, Node l, Node lu, Node u, Node ru, String terrain){
 		this.status = status;
 		this.r = r;
 		this.rd = rd;
@@ -33,35 +33,35 @@ public class node {
 		return status;
 	}
 
-	public node getR() {
+	public Node getR() {
 		return r;
 	}
 
-	public node getRd() {
+	public Node getRd() {
 		return rd;
 	}
 
-	public node getD() {
+	public Node getD() {
 		return d;
 	}
 
-	public node getLd() {
+	public Node getLd() {
 		return ld;
 	}
 
-	public node getL() {
+	public Node getL() {
 		return l;
 	}
 
-	public node getLu() {
+	public Node getLu() {
 		return lu;
 	}
 
-	public node getU() {
+	public Node getU() {
 		return u;
 	}
 
-	public node getRu() {
+	public Node getRu() {
 		return ru;
 	}
 
