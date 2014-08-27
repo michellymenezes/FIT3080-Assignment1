@@ -1,7 +1,7 @@
 4
 4
 4
-S A A A 
-A A G A
-A A A A
+S A A X 
+A X A X
+A X X G
 A A A A

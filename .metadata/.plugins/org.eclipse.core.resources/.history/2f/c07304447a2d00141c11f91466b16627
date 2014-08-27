@@ -1,6 +1,7 @@
 package planpath;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Backtrack {
 
@@ -26,7 +27,7 @@ public class Backtrack {
 				}
 			}
 		}
-		return moves;
+		return null;
 	}
 
 	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves, ArrayList<boolean []> visited) {
@@ -48,9 +49,8 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i)[j+1] = true;
-					backtrackRecursive(i, j + 1, moves, visited);
-					moves.remove(moves.size()-1);
-
+					System.out.println(Arrays.toString(visited.get(0)));
+					return backtrackRecursive(i, j + 1, moves, visited);
 				}
 				
 			case 1:	
@@ -64,9 +64,7 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i+1)[j+1] = true;
-					backtrackRecursive(i + 1, j + 1, moves, visited);
-					moves.remove(moves.size()-1);
-
+					return backtrackRecursive(i + 1, j + 1, moves, visited);
 				}
 			
 			case 2:
@@ -80,9 +78,7 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i+1)[j] = true;
-					backtrackRecursive(i + 1, j, moves, visited);
-					moves.remove(moves.size()-1);
-
+					return backtrackRecursive(i + 1, j, moves, visited);
 				}
 				
 			case 3:	
@@ -96,9 +92,7 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i+1)[j-1] = true;
-					backtrackRecursive(i + 1, j - 1, moves, visited);
-					moves.remove(moves.size()-1);
-
+					return backtrackRecursive(i + 1, j - 1, moves, visited);
 				}
 				
 			case 4:	
@@ -112,9 +106,7 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i)[j-1] = true;
-					backtrackRecursive(i, j - 1, moves, visited);
-					moves.remove(moves.size()-1);
-
+					return backtrackRecursive(i, j - 1, moves, visited);
 				}
 			
 			case 5:	
@@ -128,9 +120,7 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i-1)[j-1] = true;
-					backtrackRecursive(i - 1, j - 1, moves, visited);
-					moves.remove(moves.size()-1);
-
+					return backtrackRecursive(i - 1, j - 1, moves, visited);
 				}
 				
 			case 6:	
@@ -141,13 +131,10 @@ public class Backtrack {
 					System.out.println(moves);
 
 					if(table.get(i - 1)[j].equals("G")){
-						System.out.println("ok");
 						return moves;
 					}
 					visited.get(i-1)[j] = true;
-					backtrackRecursive(i - 1, j, moves, visited);
-					moves.remove(moves.size()-1);
-
+					return backtrackRecursive(i - 1, j, moves, visited);
 				}
 			
 			case 7:	
@@ -161,13 +148,12 @@ public class Backtrack {
 						return moves;
 					}
 					visited.get(i-1)[j+1] = true;
-					backtrackRecursive(i - 1, j + 1, moves, visited);
-					moves.remove(moves.size()-1);
-					
+					return backtrackRecursive(i - 1, j + 1, moves, visited);
 				}
 			}
 		}
-		return null;
+		visited.get(i)[j] = false;
+		return backtrackRecursive(i, j, moves, visited);
 		
 	}
 	

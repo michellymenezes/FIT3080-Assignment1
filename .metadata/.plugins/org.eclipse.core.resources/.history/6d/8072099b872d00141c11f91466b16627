@@ -26,7 +26,7 @@ public class Backtrack {
 				}
 			}
 		}
-		return moves;
+		return null;
 	}
 
 	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves, ArrayList<boolean []> visited) {
@@ -141,7 +141,6 @@ public class Backtrack {
 					System.out.println(moves);
 
 					if(table.get(i - 1)[j].equals("G")){
-						System.out.println("ok");
 						return moves;
 					}
 					visited.get(i-1)[j] = true;

@@ -130,6 +130,7 @@ public class Backtrack {
 					visited.get(i-1)[j-1] = true;
 					backtrackRecursive(i - 1, j - 1, moves, visited);
 					moves.remove(moves.size()-1);
+					break;
 
 				}
 				
@@ -167,7 +168,7 @@ public class Backtrack {
 				}
 			}
 		}
-		return null;
+		return moves;
 		
 	}
 	
