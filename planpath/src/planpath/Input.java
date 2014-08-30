@@ -10,18 +10,18 @@ public class Input {
 	private ArrayList<String> info;
 	private BufferedReader input;
 
-	public Input() throws Exception {
+	public Input(String fileName) throws Exception {
 
 		this.map = new ArrayList<String[]>();
 		this.info = new ArrayList<String>();
-		input = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/input.txt"));
+		input = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/"+ fileName));
 		int cont = 0;
 		while (input.ready()) {
 			if(cont < 3){
 				info.add(input.readLine().toUpperCase());
 			}
 			else{
-				map.add(input.readLine().toUpperCase().split(" "));
+				map.add(input.readLine().toUpperCase().split(""));
 			}
 			cont++;
 		}

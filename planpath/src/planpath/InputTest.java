@@ -3,6 +3,7 @@ package planpath;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class InputTest {
 	@Before
 	public void first(){
 		try{
-			myInput = new Input();
+			myInput = new Input("input.txt");
 			}
 		catch(Exception e){
 			
@@ -44,6 +45,7 @@ public class InputTest {
 	}
 	@Test
 	public void test() {
+		System.out.println(Arrays.toString(lista.get(3)));
 		assertEquals("4", myInput.getAlg());
 		assertEquals(4, myInput.getInt());
 		assertEquals(4, myInput.getSize());
