@@ -274,68 +274,27 @@ public class Backtrack {
 		return table;
 	}
 	
-	private boolean goR(int i, int j , ArrayList<String> possibleMoves){
+	private boolean goR(int i, int j , String [] possibleMoves){
 		if(j < input.getSize() - 1 && !table.get(i)[j + 1].equals("X") && !visited.get(i)[j + 1]){
-			possibleMoves.add("R");
+			possibleMoves[0] = "R";
 			return true;
 		}
 		return false;
 	}
 	
-	private boolean goRD(int i, int j , ArrayList<String> possibleMoves){
+	private boolean goRD(int i, int j , String [] possibleMoves){
 		if(j < input.getSize() - 1 && i < input.getSize() - 1 && !table.get(i)[j + 1].equals("X") && !table.get(i + 1)[j].equals("X") && !table.get(i + 1)[j + 1].equals("X") && !visited.get(i + 1)[j + 1]){
-			possibleMoves.add("RD");
+			possibleMoves[0] = "RD";
 			return true;
 		}
 		return false;
 	}
 	
-	private boolean goD(int i, int j , ArrayList<String> possibleMoves){
+	private boolean goD(int i, int j , String [] possibleMoves){
 		if(i < input.getSize() - 1 && !table.get(i + 1)[j].equals("X") && !visited.get(i + 1)[j]){
-			possibleMoves.add("D");
+			possibleMoves[0] = "D";
 			return true;
 		}
 		return false;
 	}
-	
-	private boolean goLD(int i, int j , ArrayList<String> possibleMoves){
-		if(j > 0 && i < input.getSize() - 1 && !table.get(i + 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i + 1)[j].equals("X") && !visited.get(i +1)[j - 1]){
-			possibleMoves.add("LD");
-			return true;
-		}
-		return false;
-	}
-	
-	private boolean goL(int i, int j , ArrayList<String> possibleMoves){
-		if(j > 0 && !table.get(i)[j - 1].equals("X") && !visited.get(i)[j -1]){
-			possibleMoves.add("L");
-			return true;
-		}
-		return false;
-	}
-	
-	private boolean goLU(int i, int j , ArrayList<String> possibleMoves){
-		if(j > 0 && i > 0 && !table.get(i - 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j -1]){
-			possibleMoves.add("LU");
-			return true;
-		}
-		return false;
-	}
-	
-	private boolean goU(int i, int j , ArrayList<String> possibleMoves){
-		if(i > 0 && !table.get(i - 1)[j].equals("X") && !visited.get(i - 1)[j]){
-			possibleMoves.add("U");
-			return true;
-		}
-		return false;
-	}
-	
-	private boolean goRU(int i, int j , ArrayList<String> possibleMoves){
-		if(j < input.getSize() - 1 && i > 0 && !table.get(i - 1)[j + 1].equals("X") && !table.get(i)[j + 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j +1]){
-			possibleMoves.add("RU");
-			return true;
-		}
-		return false;
-	}
-	
 }
