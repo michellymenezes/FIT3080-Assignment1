@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 public class Backtrack {
 
-	private Input input;
+	private int size;
 	private ArrayList<String[]> table;
 	private ArrayList<ArrayList<String>> states;
 	private ArrayList<boolean []> visited;
 
-	public Backtrack(String fileName) throws Exception {
-
-		this.input = new Input(fileName);
-		this.table = input.getMap();
+	public Backtrack(int size, ArrayList<String []> table) throws Exception {
+		
+		this.size = size;
+		
+		this.table = table;
 		this.states = new ArrayList<ArrayList<String>>();
 		this.visited = createVisited();
 
@@ -21,8 +22,8 @@ public class Backtrack {
 	public ArrayList<String> backtrack() {
 		ArrayList<String> moves = new ArrayList<String>();
 
-		for (int i = 0; i < input.getSize(); i++) {
-			for (int j = 0; j < input.getSize(); j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				if (table.get(i)[j].equals("S")) {
 					moves.add("S");
 					backtrackRecursive(i, j, moves, visited);
@@ -172,20 +173,20 @@ public class Backtrack {
 	}
 	
 	private ArrayList<boolean []> createVisited(){
-		ArrayList<boolean []> table = new ArrayList<boolean []>();		
-		for(int i = 0; i < input.getSize(); i++){
-			boolean [] line = new boolean [input.getSize()];
-			for(int j = 0; j < input.getSize(); j++){
-				if(input.getMap().get(i)[j].equals("S")){
+		ArrayList<boolean []> visitedTable = new ArrayList<boolean []>();		
+		for(int i = 0; i < size; i++){
+			boolean [] line = new boolean [size];
+			for(int j = 0; j < size; j++){
+				if(table.get(i)[j].equals("S")){
 					line[j] = true;
 				}
 				else{
 					line[j] = false;
 				}
 			}
-			table.add(line);
+			visitedTable.add(line);
 		}
-		return table;
+		return visitedTable;
 	}
 	
 	private ArrayList<String> possibleMoves(int i, int j){
@@ -203,7 +204,7 @@ public class Backtrack {
 	}
 	
 	private boolean goR(int i, int j , ArrayList<String> possibleMoves){
-		if(j < input.getSize() - 1 && !table.get(i)[j + 1].equals("X") && !visited.get(i)[j + 1]){
+		if(j < size - 1 && !table.get(i)[j + 1].equals("X") && !visited.get(i)[j + 1]){
 			possibleMoves.add("R");
 			return true;
 		}
@@ -211,7 +212,7 @@ public class Backtrack {
 	}
 	
 	private boolean goRD(int i, int j , ArrayList<String> possibleMoves){
-		if(j < input.getSize() - 1 && i < input.getSize() - 1 && !table.get(i)[j + 1].equals("X") && !table.get(i + 1)[j].equals("X") && !table.get(i + 1)[j + 1].equals("X") && !visited.get(i + 1)[j + 1]){
+		if(j < size - 1 && i < size - 1 && !table.get(i)[j + 1].equals("X") && !table.get(i + 1)[j].equals("X") && !table.get(i + 1)[j + 1].equals("X") && !visited.get(i + 1)[j + 1]){
 			possibleMoves.add("RD");
 			return true;
 		}
@@ -219,7 +220,7 @@ public class Backtrack {
 	}
 	
 	private boolean goD(int i, int j , ArrayList<String> possibleMoves){
-		if(i < input.getSize() - 1 && !table.get(i + 1)[j].equals("X") && !visited.get(i + 1)[j]){
+		if(i < size - 1 && !table.get(i + 1)[j].equals("X") && !visited.get(i + 1)[j]){
 			possibleMoves.add("D");
 			return true;
 		}
@@ -227,7 +228,7 @@ public class Backtrack {
 	}
 	
 	private boolean goLD(int i, int j , ArrayList<String> possibleMoves){
-		if(j > 0 && i < input.getSize() - 1 && !table.get(i + 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i + 1)[j].equals("X") && !visited.get(i +1)[j - 1]){
+		if(j > 0 && i < size - 1 && !table.get(i + 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i + 1)[j].equals("X") && !visited.get(i +1)[j - 1]){
 			possibleMoves.add("LD");
 			return true;
 		}
@@ -259,7 +260,7 @@ public class Backtrack {
 	}
 	
 	private boolean goRU(int i, int j , ArrayList<String> possibleMoves){
-		if(j < input.getSize() - 1 && i > 0 && !table.get(i - 1)[j + 1].equals("X") && !table.get(i)[j + 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j +1]){
+		if(j < size - 1 && i > 0 && !table.get(i - 1)[j + 1].equals("X") && !table.get(i)[j + 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j +1]){
 			possibleMoves.add("RU");
 			return true;
 		}

@@ -7,11 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import planpath.Backtrack;
+import planpath.Input;
 
 public class BacktrackTest {
 
 	Backtrack A, B,C, D, E, F;
 	ArrayList<String> a, b, c, d, e, f;
+	Input one, two, three, four, five, six;
 	
 	@Before
 	public void preparation1(){
@@ -23,7 +25,8 @@ public class BacktrackTest {
 		a.add("R");
 		a.add("G");
 		try {
-			A = new Backtrack("tests/teste1.txt");
+			one = new Input("tests/teste1.txt");
+			A = new Backtrack(one.getSize(), one.getMap());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,7 +47,8 @@ public class BacktrackTest {
 		b.add("D");
 		b.add("G");
 		try {
-			B = new Backtrack("tests/teste2.txt");
+			two = new Input("tests/teste2.txt");
+			B = new Backtrack(two.getSize(), two.getMap());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,7 +68,8 @@ public class BacktrackTest {
 		c.add("R");
 		c.add("G");
 		try {
-			C = new Backtrack("tests/teste3.txt");
+			three = new Input("tests/teste3.txt");
+			C = new Backtrack(three.getSize(), three.getMap());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,7 +91,8 @@ public class BacktrackTest {
 		d.add("R");
 		d.add("G");
 		try {
-			D = new Backtrack("tests/teste4.txt");
+			four = new Input("tests/teste4.txt");
+			D = new Backtrack(four.getSize(), four.getMap());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -107,7 +113,8 @@ public class BacktrackTest {
 		e.add("D");
 		e.add("G");
 		try {
-			E = new Backtrack("tests/teste5.txt");
+			five = new Input("tests/teste5.txt");
+			E = new Backtrack(five.getSize(), five.getMap());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -130,7 +137,8 @@ public class BacktrackTest {
 		f.add("L");
 		f.add("G");
 		try {
-			F = new Backtrack("tests/teste6.txt");
+			six = new Input("tests/teste6.txt");
+			F = new Backtrack(six.getSize(), six.getMap());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

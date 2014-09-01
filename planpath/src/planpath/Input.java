@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Input {
 
-	ArrayList<String []> map;
+	private ArrayList<String []> map;
 	private ArrayList<String> info;
 	private BufferedReader input;
 
