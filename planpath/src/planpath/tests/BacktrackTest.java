@@ -54,7 +54,7 @@ public class BacktrackTest {
 	public void test2() {
 		System.out.println(b);
 		Assert.assertEquals(b, B.backtrack());
-	} 
+	}  
 	
 	@Before
 	public void preparation3(){
@@ -139,6 +139,6 @@ public class BacktrackTest {
 	@Test
 	public void test6() {
 		Assert.assertEquals(f, F.backtrack());
-	}
+	} 
 
 }

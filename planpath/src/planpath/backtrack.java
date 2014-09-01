@@ -29,17 +29,16 @@ public class Backtrack {
 				}
 			}
 		}
-		System.out.println("---");
 		System.out.println(moves);
+		System.out.println(states);
 		return moves;
 	}
 
 	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves, ArrayList<boolean []> visited) {
-		System.out.println("+++");
-		System.out.println(possibleMoves(i, j));
-		System.out.println("+++");
+		
+		states.add(possibleMoves(i, j));
+		
 		for(int k = 0; k < 8; k++){
-			System.out.println(moves);
 			if(moves.size() > 0 && moves.get(moves.size()-1).equals("G")){
 				break;
 			}
@@ -47,7 +46,6 @@ public class Backtrack {
 			
 			case 0: 
 				if (goR(i, j, moves)){
-					
 					if (table.get(i)[j + 1].equals("G")) {
 						moves.add("G");
 						return moves;
@@ -59,12 +57,10 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
 				
 			case 1:	
 				if(goRD(i, j, moves)){
-
 					if(table.get(i + 1)[j + 1].equals("G")){
 						moves.add("G");
 						return moves;
@@ -76,12 +72,10 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
 			
 			case 2:
 				if(goD(i, j, moves)){
-
 					if(table.get(i + 1)[j].equals("G")){
 						moves.add("G");
 						break;
@@ -93,12 +87,10 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
 				
 			case 3:	
 				if(goLD(i, j, moves)){
-
 					if(table.get(i + 1)[j - 1].equals("G")){
 						moves.add("G");
 						return moves;
@@ -110,12 +102,10 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
 				
 			case 4:	
 				if(goL(i, j, moves)){
-
 					if(table.get(i)[j - 1].equals("G")){
 						moves.add("G");
 						return moves;
@@ -127,12 +117,10 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
 			
 			case 5:	
 				if(goLU(i, j, moves)){
-
 					if(table.get(i - 1)[j - 1].equals("G")){
 						moves.add("G");
 						return moves;
@@ -144,12 +132,10 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
 				
 			case 6:	
 				if(goU(i, j, moves)){
-
 					if(table.get(i - 1)[j].equals("G")){
 						moves.add("G");
 						return moves;
@@ -166,7 +152,6 @@ public class Backtrack {
 			
 			case 7:	
 				if(goRU(i, j, moves)){
-
 					if(table.get(i - 1)[j + 1].equals("G")){
 						moves.add("G");
 						return moves;
@@ -178,20 +163,12 @@ public class Backtrack {
 					}
 					moves.remove(moves.size()-1);
 					break;
-
 				}
+				if(moves.size() - states.size() < 1)
+					states.remove(states.size()-1);
 			}
 		}
-		
 		return null;
-		
-	}
-	
-	public static void main(String [] args) throws Exception{
-		Backtrack b = new Backtrack("input.txt");
-		b.backtrack();
-		
-		
 	}
 	
 	private ArrayList<boolean []> createVisited(){
@@ -288,5 +265,4 @@ public class Backtrack {
 		}
 		return false;
 	}
-	
 }
