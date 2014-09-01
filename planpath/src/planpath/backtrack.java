@@ -22,7 +22,6 @@ public class Backtrack {
 	 * This method will return the movements chosen from the S to the G.
 	 * First it will search for the tile S and, after that, applies the data in the recursive function.
 	 */
-
 	public ArrayList<String> backtrack() {
 		ArrayList<String> moves = new ArrayList<String>();
 
@@ -34,8 +33,6 @@ public class Backtrack {
 				}
 			}
 		}
-		System.out.println(moves);
-		System.out.println(states);
 		return moves;
 	}
 
@@ -222,6 +219,13 @@ public class Backtrack {
 		goRU(i, j, possibleMoves);
 		
 		return possibleMoves;
+	}
+	
+	/*
+	 * This method returns all the possible movies in sequence
+	 */
+	public ArrayList<ArrayList<String>> getPossiblesMoves(){
+		return states;
 	}
 	
 	/*

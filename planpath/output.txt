@@ -1,0 +1,7 @@
+S-R-R-R-G 6
+S 0
+R RD D
+S-R 2
+R RD D LD
+S-R-R 3
+R RD D LD
