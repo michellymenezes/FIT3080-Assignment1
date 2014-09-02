@@ -1,7 +1,12 @@
-S-R-R-R-G 6
+S-D-D-R-D-L-G 10
 S 0
+R D
+S-D 2
+D
+S-D-D 4
 R RD D
-S-R 2
-R RD D LD
-S-R-R 3
-R RD D LD
+S-D-D-R 6
+D LD
+S-D-D-R-D 8
+R L
+S-D-D-R-D-L-G 10
