@@ -18,7 +18,7 @@ public class Planpath {
 			
 			file = new FileWriter("output.txt");
 			writeFile = new PrintWriter(file);
-			input = new Input("tests/teste6.txt");
+			input = new Input("input.txt");
 			
 			if(input.getAlg().equals("K")){
 				b = new Backtrack(input.getSize(), input.getMap());
@@ -55,7 +55,6 @@ public class Planpath {
 		}
 		writeFile.print("\n");
 		int cont = 0;
-		System.out.println(moves);
 		for(int i = 1; i < iterations; i++){
 			writeFile.print(pack.get(0));
 			for(int j = 1; j <= i; j++){
@@ -70,7 +69,6 @@ public class Planpath {
 			}
 			writeFile.print(cont);
 			writeFile.print("\n" + moves.get(i).get(0));
-			System.out.println(moves.get(i));
 			for(int k = 1; k < moves.get(i).size(); k++){
 				System.out.println(moves.get(i).get(k));
 				writeFile.print(" " + moves.get(i).get(k));				
