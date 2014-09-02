@@ -11,11 +11,11 @@ import planpath.Input;
 
 public class BacktrackTest {
 
-	Backtrack A, B,C, D, E, F;
-	ArrayList<String> a, b, c, d, e, f;
-	Input one, two, three, four, five, six;
+	Backtrack A, B,C, D, E, F, G;
+	ArrayList<String> a, b, c, d, e, f, g;
+	Input one, two, three, four, five, six, seven;
 	
-	@Before
+	/*@Before
 	public void preparation1(){
 		
 		a = new ArrayList<String>();
@@ -147,6 +147,21 @@ public class BacktrackTest {
 	@Test
 	public void test6() {
 		Assert.assertEquals(f, F.backtrack());
-	} 
-
+	}*/
+	
+	@Before
+	public void preparation7(){
+		try{
+			seven = new Input("tests/teste7.txt");
+			G = new Backtrack(seven.getSize(), seven.getMap());
+		} catch(Exception e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+		}
+	}
+	@Test
+	public void test7(){
+		Assert.assertNull(G.backtrack());
+		System.out.println(G.getPossiblesMoves());
+	}
 }

@@ -33,6 +33,9 @@ public class Backtrack {
 				}
 			}
 		}
+		if(moves.size() == 1){
+			return null;
+		}
 		return moves;
 	}
 
@@ -47,8 +50,11 @@ public class Backtrack {
 	 */
 	
 	private ArrayList<String> backtrackRecursive(int i, int j, ArrayList<String> moves, ArrayList<boolean []> visited) {
-		
 		states.add(possibleMoves(i, j));
+		
+		if(states.isEmpty()){
+			return null;
+		}
 		
 		for(int k = 0; k < 8; k++){
 			if(moves.size() > 0 && moves.get(moves.size()-1).equals("G")){

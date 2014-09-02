@@ -24,7 +24,12 @@ public class Planpath {
 				b = new Backtrack(input.getSize(), input.getMap());
 				pack = b.backtrack();
 				
-				write(1, input.getInt(), writeFile, pack, b.getPossiblesMoves());
+				if(pack == null){
+					writeFile.print("NO-PATH");
+				}
+				else{
+					write(1, input.getInt(), writeFile, pack, b.getPossiblesMoves());
+				}
 			}
 			
 			else{
