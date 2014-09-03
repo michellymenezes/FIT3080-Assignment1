@@ -6,30 +6,34 @@ import java.util.ArrayList;
 
 public class Input {
 
-	private ArrayList<String []> map;
+	private ArrayList<String []> mapB;
+	private ArrayList<Node> mapS;
 	private ArrayList<String> info;
 	private BufferedReader input;
 
 	public Input(String fileName) throws Exception {
 
-		this.map = new ArrayList<String[]>();
 		this.info = new ArrayList<String>();
 		input = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/planpath/"+ fileName));
-		int cont = 0;
-		while (input.ready()) {
-			if(cont < 3){
-				info.add(input.readLine().toUpperCase());
-			}
-			else{
-				map.add(input.readLine().toUpperCase().split(""));
-			}
-			cont++;
+		createInfo();
+		
+		if(getAlg().equals("K")){
+			createMapB();
 		}
+		else{
+		//	createMapS();
+		}
+
 		input.close();
 	}
 	
-	public ArrayList<String[]> getMap(){
-		return map;
+
+	public ArrayList<String[]> getMapB(){
+		return mapB;
+	}
+
+	public ArrayList<Node> getMapS(){
+		return mapS;
 	}
 	
 	public String getAlg(){
@@ -43,4 +47,22 @@ public class Input {
 	public int getSize(){
 		return Integer.parseInt((String) info.get(2));
 	}
+	
+	private void createInfo() throws Exception{
+		for(int i = 0; i < 3; i++){
+			info.add(input.readLine().toUpperCase());
+		}
+	}
+	
+	public void createMapB() throws Exception{
+		this.mapB = new ArrayList<String[]>();
+		int cont = 0;
+		while (input.ready()) {
+			if(cont > 2){
+			mapB.add(input.readLine().toUpperCase().split(""));
+			}
+			cont++;
+		}
+	}
+	
 }

@@ -21,7 +21,7 @@ public class Planpath {
 			input = new Input("input.txt");
 			
 			if(input.getAlg().equals("K")){
-				b = new Backtrack(input.getSize(), input.getMap());
+				b = new Backtrack(input.getSize(), input.getMapB());
 				pack = b.backtrack();
 				
 				if(pack == null){

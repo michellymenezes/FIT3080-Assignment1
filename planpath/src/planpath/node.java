@@ -2,70 +2,35 @@ package planpath;
 
 public class Node {
 
-	private boolean status;
-	private Node r, rd, d, ld, l, lu, u, ru;
-	private String terrain;
+	private Node parent;
+	private String operator, state;
+	private int depht, path;
 	
-	public Node(boolean status, Node r, Node rd, Node d, Node ld, Node l, Node lu, Node u, Node ru, String terrain){
-		this.status = status;
-		this.r = r;
-		this.rd = rd;
-		this.d = d;
-		this.ld = ld;
-		this.l = l;
-		this.lu = lu;
-		this.u = u;
-		this.ru = ru;
-		this.l = l;
-		this.terrain = terrain;
+	public Node(Node parent, String operator, int depht, int path, String state){
+		this.parent = parent;
+		this.operator = operator;
+		this.depht++;
+		this.path += path;
+		this.state = state;
 	}
 
-	public void setStatus() {
-		if(status == true){
-			status = false;
-		}
-		else{
-			status = true;
-		}
+	public String getState() {
+		return state;
 	}
 
-	public boolean isStatus() {
-		return status;
+	public Node getParent() {
+		return parent;
 	}
 
-	public Node getR() {
-		return r;
+	public String getOperator() {
+		return operator;
 	}
 
-	public Node getRd() {
-		return rd;
+	public int getDepht() {
+		return depht;
 	}
 
-	public Node getD() {
-		return d;
-	}
-
-	public Node getLd() {
-		return ld;
-	}
-
-	public Node getL() {
-		return l;
-	}
-
-	public Node getLu() {
-		return lu;
-	}
-
-	public Node getU() {
-		return u;
-	}
-
-	public Node getRu() {
-		return ru;
-	}
-
-	public String getTerrain() {
-		return terrain;
+	public int getPath() {
+		return path;
 	}
 }

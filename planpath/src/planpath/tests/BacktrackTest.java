@@ -15,7 +15,7 @@ public class BacktrackTest {
 	ArrayList<String> a, b, c, d, e, f, g;
 	Input one, two, three, four, five, six, seven;
 	
-	/*@Before
+	@Before
 	public void preparation1(){
 		
 		a = new ArrayList<String>();
@@ -26,7 +26,7 @@ public class BacktrackTest {
 		a.add("G");
 		try {
 			one = new Input("tests/teste1.txt");
-			A = new Backtrack(one.getSize(), one.getMap());
+			A = new Backtrack(one.getSize(), one.getMapB());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +48,7 @@ public class BacktrackTest {
 		b.add("G");
 		try {
 			two = new Input("tests/teste2.txt");
-			B = new Backtrack(two.getSize(), two.getMap());
+			B = new Backtrack(two.getSize(), two.getMapB());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,7 +56,6 @@ public class BacktrackTest {
 	}
 	@Test
 	public void test2() {
-		System.out.println(b);
 		Assert.assertEquals(b, B.backtrack());
 	}  
 	
@@ -69,7 +68,7 @@ public class BacktrackTest {
 		c.add("G");
 		try {
 			three = new Input("tests/teste3.txt");
-			C = new Backtrack(three.getSize(), three.getMap());
+			C = new Backtrack(three.getSize(), three.getMapB());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -92,7 +91,7 @@ public class BacktrackTest {
 		d.add("G");
 		try {
 			four = new Input("tests/teste4.txt");
-			D = new Backtrack(four.getSize(), four.getMap());
+			D = new Backtrack(four.getSize(), four.getMapB());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -114,7 +113,7 @@ public class BacktrackTest {
 		e.add("G");
 		try {
 			five = new Input("tests/teste5.txt");
-			E = new Backtrack(five.getSize(), five.getMap());
+			E = new Backtrack(five.getSize(), five.getMapB());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,7 +137,7 @@ public class BacktrackTest {
 		f.add("G");
 		try {
 			six = new Input("tests/teste6.txt");
-			F = new Backtrack(six.getSize(), six.getMap());
+			F = new Backtrack(six.getSize(), six.getMapB());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,13 +146,13 @@ public class BacktrackTest {
 	@Test
 	public void test6() {
 		Assert.assertEquals(f, F.backtrack());
-	}*/
+	}
 	
 	@Before
 	public void preparation7(){
 		try{
 			seven = new Input("tests/teste7.txt");
-			G = new Backtrack(seven.getSize(), seven.getMap());
+			G = new Backtrack(seven.getSize(), seven.getMapB());
 		} catch(Exception e){
 			// TODO Auto-generated catch block
 			e.printStackTrace();	
@@ -162,6 +161,5 @@ public class BacktrackTest {
 	@Test
 	public void test7(){
 		Assert.assertNull(G.backtrack());
-		System.out.println(G.getPossiblesMoves());
 	}
 }
