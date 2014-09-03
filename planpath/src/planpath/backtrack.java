@@ -281,19 +281,6 @@ public class Backtrack {
 		return false;
 	}
 	
-	public int getCost(){
-		int n = 0;
-		for(int i = 1; i < moves.size()-1; i++){
-			if(moves.get(i).length() == 1){
-				n += 2;
-			}
-			else{
-				n++;
-			}
-		}
-		return n;
-	}
-	
 	private boolean goLU(int i, int j , ArrayList<String> possibleMoves){
 		if(j > 0 && i > 0 && !table.get(i - 1)[j - 1].equals("X") && !table.get(i)[j - 1].equals("X") && !table.get(i - 1)[j].equals("X") && !visited.get(i -1)[j -1]){
 			possibleMoves.add("LU");
@@ -316,5 +303,18 @@ public class Backtrack {
 			return true;
 		}
 		return false;
+	}
+	
+	public int getCost(){
+		int n = 0;
+		for(int i = 1; i < moves.size()-1; i++){
+			if(moves.get(i).length() == 1){
+				n += 2;
+			}
+			else{
+				n++;
+			}
+		}
+		return n;
 	}
 }

@@ -3,19 +3,24 @@ package planpath;
 public class Node {
 
 	private Node parent;
-	private String operator, state;
-	private int depht, path;
+	private String operator;
+	private int depht, path, i, j;
 	
-	public Node(Node parent, String operator, int depht, int path, String state){
+	public Node(Node parent, String operator, int depht, int path, int i, int j){
 		this.parent = parent;
 		this.operator = operator;
 		this.depht++;
 		this.path += path;
-		this.state = state;
+		this.i = i;
+		this.j = j;
 	}
 
-	public String getState() {
-		return state;
+	public int getI() {
+		return i;
+	}
+
+	public int getJ() {
+		return j;
 	}
 
 	public Node getParent() {
